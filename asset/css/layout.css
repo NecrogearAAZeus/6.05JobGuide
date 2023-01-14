@@ -1,0 +1,728 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'GongGothicMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+*{
+    margin:0; 
+    padding:0;
+    vertical-align: top;
+    font-family:'NanumSquareRound';
+    box-sizing: border-box;
+}
+::selection{
+    background-color: transparent;
+    color:#dadeec;
+}
+a:visited, a:link{
+    color:#dadeec;
+    text-decoration:none;
+}
+ul{
+    list-style:none;
+}
+body{
+    background-color:#161a2b;
+}
+#wrapper{
+    width:100%;
+    height:100vh;
+
+    /*일정크기 미만일시 안내하고 확대 시키기*/
+    position:relative;
+    overflow: hidden;
+}
+#alert{
+    width:100%;
+    height:100vh;
+    background-color:#0c0b0b;
+    text-align:center;
+    line-height:100vh;
+    position:absolute;
+    z-index: 1000;
+    font-size:30px;
+    color:#dadeec;
+    display:none;
+    opacity:0.8;
+
+}
+
+#logo{
+    position:absolute;
+    top:30px;
+    left:30px;
+    z-index:30;
+    display:none;
+}
+#title{
+    position:absolute;
+    top:30px;
+    left:130px;
+    color:#dadeec;
+    font-size:20px;
+    display:block;
+    z-index: 30;
+    margin-top:31px;
+    font-family: GongGothicMedium;
+    display:none;
+}
+#logo img{
+    width:80px;
+    height:80px;
+}
+#imgCover{
+    width:100%;
+    height:100vh;
+    position:relative;
+    display:none;
+}
+.text{
+    position:absolute;
+    bottom:4%;
+    left:3%;
+    z-index: 100;
+    color:#dadeec;
+    font-size:17px;
+    text-shadow: -1px 0px black, 0px 1px black, 1px 0px black, 0px -1px black;
+    padding:5px 10px;
+    background-color:rgba(0,0,0,0.2);
+    border-radius: 5px;;
+    
+}
+
+.Timg{
+    position:absolute;
+    /*캐릭터들 순차적으로 나오기*/
+
+    display:none;
+    width:100%;
+    top:0;
+    left:0;
+    height:100vh;
+
+}
+.Timg.active{
+    display:inline-block;
+}
+.Timg img:nth-child(2){
+    width:100%;
+    height:100vh;
+    /*이거보다 클경우 vh쓰게 조정하기이미지 말고 백그라운드만 적용*/
+   
+}
+.PLD{
+    position:absolute;
+    z-index: 10;
+    bottom:0;
+    left:0%;
+    object-fit: contain;
+    height:98vh;
+  
+}
+.DK{
+    position:absolute;
+    z-index: 9;
+    bottom:0;
+    left:-25%;
+    object-fit: contain;
+    height:98vh;
+ 
+}
+
+.WAR{
+    position:absolute;
+    z-index: 7;
+    bottom:5%;
+    left:-10%;
+    object-fit: contain;
+    height:110vh;
+   
+}
+.GB{
+    position:absolute;
+    z-index: 8;
+    bottom:10%;
+    left:28%;
+    object-fit: contain;
+    height:100vh;
+    
+
+}
+.Timg span{
+    width:500px;
+    text-align:right;
+    position:absolute;
+    bottom:40px;
+    right:40px;
+    color:#dadeec;
+    font-size:20px;
+    text-shadow: -2px 0px #16181e, 0px 2px #16181e, 2px 0px #16181e, 0px -2px #16181e;
+    z-index: 100;
+}
+
+.Dimg{
+    position:absolute;
+    display:none;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    
+}
+.Dimg img:nth-child(2){
+    width:100%;
+    height:100vh;
+
+}
+.SUM{
+    position:absolute;
+    z-index: 10;
+    bottom:0%;
+    left:-5%;
+    object-fit: contain;
+    height:110vh;
+}
+.DRG{
+    position:absolute;
+    z-index: 9;
+    bottom:-10%;
+    left:-33%;
+    object-fit: contain;
+    height:98vh;
+}
+.DAN{
+    position:absolute;
+    z-index: 8;
+    bottom:0%;
+    left:30%;
+    object-fit: contain;
+    height:98vh;
+}
+.Dimg span{
+    width:700px;
+    text-align:right;
+    position:absolute;
+    bottom:40px;
+    right:40px;
+    color:#dadeec;
+    font-size:20px;
+    text-shadow: -2px 0px #1e1618, 0px 2px #1e1618, 2px 0px #1e1618, 0px -2px #1e1618;
+    z-index: 100;
+}
+
+.Himg{
+    position:absolute;
+    display:none;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+}
+.Himg img:nth-child(2){
+    width:100%;
+    height:100vh;
+
+}
+
+.SCH{
+    position:absolute;
+    z-index: 10;
+    bottom:-5%;
+    left:8%;
+    object-fit: contain;
+    height:98vh;
+}
+.AST{
+    position:absolute;
+    z-index: 9;
+    bottom:0%;
+    left:30%;
+    object-fit: contain;
+    height:98vh;
+}
+.WM{
+    position:absolute;
+    z-index: 8;
+    bottom:0%;
+    left:-10%;
+    object-fit: contain;
+    height:100vh;
+    
+}
+.SAG{
+    position:absolute;
+    z-index: 7;
+    bottom:0%;
+    left:-20%;
+    object-fit: contain;
+    height:98vh;
+}
+.Himg span{
+    width:500px;
+    text-align:right;
+    position:absolute;
+    bottom:40px;
+    right:40px;
+    color:#dadeec;
+    font-size:20px;
+    text-shadow: -2px 0px #171f19, 0px 2px #171f19, 2px 0px #171f19, 0px -2px #171f19;
+    z-index: 100;
+}
+.MDimg,.RDimg,.CSTimg{
+    display:none;
+}
+.MK{
+    position:absolute;
+    bottom:0;
+    right:18%;
+    object-fit: contain;
+    height:100vh;
+    z-index: 9;
+}
+.DRG2{
+    position: absolute;
+    bottom:3%;
+    left:43%;
+    object-fit: contain;
+    height:100vh;
+    z-index:6;
+}
+.NIN{
+    position:absolute;
+    bottom:0;
+    right:5%;
+    object-fit: contain;
+    height:100vh;
+    z-index: 10;
+}
+.SAM{
+    position:absolute;
+    bottom:0;
+    right:-5%;
+    object-fit: contain;
+    height:98vh;
+    z-index: 8;
+}
+.REP{
+    position:absolute;
+    bottom:-5%;
+    right:55%;
+    object-fit: contain;
+    height:95vh;
+    z-index: 7;
+}
+.BAR{
+    position:absolute;
+    bottom:0;
+    right:5%;
+    object-fit: contain;
+    height:108vh;
+    z-index: 10;
+}
+.MAC{
+    position:absolute;
+    bottom:0;
+    right:14%;
+    object-fit: contain;
+    height:100vh;
+    z-index: 9;
+}
+.DAN2{
+    position:absolute;
+    bottom:-4%;
+    right:-12%;
+    object-fit: contain;
+    height:100vh;
+    z-index: 8;
+}
+.BM{
+    position:absolute;
+    bottom:-50%;
+    right:-5%;
+    object-fit: contain;
+    height:170vh;
+    z-index: 7;
+}
+.SUM2{
+    position:absolute;
+    bottom:0;
+    left:-5%;
+    object-fit: contain;
+    height:110vh;
+    z-index: 10;
+}
+.RM{
+    position:absolute;
+    bottom:-50%;
+    right:-25%;
+    object-fit: contain;
+    height:170vh;
+    z-index: 8;
+}
+
+#accordian{
+    position:absolute;
+    z-index: 20;
+    right:0px;
+    top:0;
+    display: none;
+}
+  
+
+
+.T1{
+    width:200px;
+    height:120px;
+    display:block;
+    cursor: pointer;
+    font-weight:bold;
+    font-family: GongGothicMedium;
+    font-size:30px;
+    color:#dadeec;
+    text-align:center;
+    line-height:120px;
+    position:relative;
+    background-color:#2a2b5d;
+    background-image:linear-gradient(to bottom,#2a2b5d 0%, #1b1c4e 100%);
+    border:2px solid #5b69a1;
+    border-right:none;
+}
+.T1:hover{
+    background:#5b69a1;
+    transition: all 0.15s;
+}
+.T1 span{
+    padding-left:20px;
+    font-family: GongGothicMedium;
+}
+
+.D1{
+    width:200px;
+    height:120px;
+    display:block;
+    cursor: pointer;
+    font-weight:bold;
+    font-family: GongGothicMedium;
+    font-size:30px;
+    color:#dadeec;
+    text-align:center;
+    line-height:120px;
+    position:relative;
+    background-color:#5f1d26;
+    background-image:linear-gradient(to bottom,#5f1d26 0%, #501817 100%);
+    border:2px solid #a33d3d;
+    border-right:none;
+}
+.D1:hover{
+    background:#a33d3d;
+    transition: all 0.15s;
+}
+.D1 span{
+    padding-left:20px;
+    font-family: GongGothicMedium;
+}
+.H1
+{
+    width:200px;
+    height:120px;
+    display:block;
+    cursor: pointer;
+    font-weight:bold;
+    font-family: GongGothicMedium;
+    font-size:30px;
+    color:#dadeec;
+    text-align:center;
+    line-height:120px;
+    position:relative;
+    background-color:#1d5f39;
+    background-image:linear-gradient(to bottom,#1d5f39 0%, #0e502a 100%);
+    border:2px solid #67af65;
+    border-right:none;
+}
+.H1:hover{
+    background:#67af65;
+    transition: all 0.15s;
+}
+.H1 span{
+    padding-left:20px;
+    font-family: GongGothicMedium;
+}
+
+/*.menu1:hover{
+    border-right:10px solid #eff0f5;
+    transition: all 0.15s;
+} 나중에 선 추가하고 그라디언트 색 달라지게 하기.
+*/
+.Tsub{
+    width:200px;
+    display:none;
+}
+
+.Tsub li img{
+    position:absolute;
+    top:50%;
+    left:12%;
+    margin-top:-15px;
+    width:30px;
+    height:30px;
+}
+.menu1{
+    position:absolute;
+    display:block;
+    top:-1px;
+    right:0;
+    height:120px;
+    filter:drop-shadow(0 8px 7px  rgba(0,0,0,0.5));
+    z-index: 5;
+}
+.TIcon{
+    width:40px;
+    height:40px;
+    position:absolute;
+    top:50%;
+    left:20px;
+    margin-top:-20px;
+}
+
+.Tsub li{
+    width:200px;
+    height:70px;
+    background-color:#2a2b5d;
+    background-image:linear-gradient(to bottom,#2a2b5d 0%, #1b1c4e 100%);
+    transition: all 0.15s;
+    text-align:center;
+    border:1px solid #5b69a1;
+    border-left:2px solid #5b69a1;
+    box-shadow:8px 8px 7px  rgba(0,0,0,0.2);
+    border-right:none;
+    filter:drop-shadow(0 8px 7px  rgba(0,0,0,0.3));
+    position:relative;
+}
+.Tsub li:last-child{
+    border-bottom:2px solid #5b69a1;
+
+}
+.Tsub li:hover{
+
+    background:#5b69a1;
+    
+
+}
+.menu2{
+    position:absolute;
+    display:block;
+    top:-1px;
+    right:0;
+    height:120px;
+    filter:drop-shadow(0 8px 7px  rgba(0,0,0,0.5));
+    z-index: 5;
+    display:none;
+}
+
+.DIcon{
+    width:40px;
+    height:40px;
+    position:absolute;
+    top:50%;
+    left:20px;
+    margin-top:-20px;
+}
+.Dsub span{
+    width:200px;
+    height:80px;
+    background-image:linear-gradient(to bottom,#5f1d26 0%, #501817 100%);
+    transition: all 0.15s;
+    text-align:center;
+    background-color:#5f1d26;
+    border:1px solid #a33d3d;
+    border-left:2px solid #a33d3d;
+    box-shadow:0 8px 7px  rgba(0,0,0,0.2);
+    border-right:none;
+    line-height:80px;
+    position:relative;
+    filter:drop-shadow(0 8px 7px  rgba(0,0,0,0.3));
+    display:block;
+    z-index: 10;
+    font-size:20px;
+    text-indent: 40px;
+    color:#dadeec;
+    cursor: pointer;
+    box-sizing: border-box;
+
+}
+.Dsub li:last-child{
+    border-bottom:2px solid #a33d3d;
+}
+.Dsub{
+    width:200px;
+    display:none;
+}
+.Dsub span:hover{
+
+    background:#a33d3d;
+    
+
+}
+
+.Dsub li img:nth-child(2){
+    position:absolute;
+    top:50%;
+    left:12%;
+    margin-top:-15px;
+    width:30px;
+    height:30px;
+}
+.submenu2 li img{
+    position:absolute;
+    top:50%;
+    left:12%;
+    margin-top:-15px;
+    width:30px;
+    height:30px;
+}
+.submenu span img:last-child{
+    position:absolute;
+    top:50%;
+    left:10%;
+    margin-top:-17.5px;
+    width:35px;
+    height:35px;
+}
+
+.menu3{
+    position:absolute;
+    display:block;
+    top:-1px;
+    right:0;
+    height:120px;
+    filter:drop-shadow(0 8px 7px  rgba(0,0,0,0.5));
+    z-index: 5;
+    display:none;
+
+}
+.HIcon{
+    width:40px;
+    height:40px;
+    position:absolute;
+    top:50%;
+    left:20px;
+    margin-top:-20px;
+}
+.Hsub{
+    width:200px;
+    display:none;
+}
+.Hsub li{
+    width:200px;
+    height:70px;
+    background-image:linear-gradient(to bottom,#1d5f39 0%, #0e502a 100%);
+    transition: all 0.15s;
+    text-align:center;
+    border:1px solid #67af65;
+    border-left:2px solid #67af65;
+    box-shadow:0 8px 7px  rgba(0,0,0,0.2);
+    border-right:none;
+    background-color:black;
+    transition: all 0.15s;
+    text-align:center;
+    background-color:#1d5f39;
+    position:relative;
+    filter:drop-shadow(0 8px 7px  rgba(0,0,0,0.3));
+
+}
+.Hsub li{
+    border-bottom:2px solid #67af65;
+}
+.Hsub li:hover{
+
+    background:#67af65;
+    
+
+}
+.Hsub li img{
+    position:absolute;
+    top:50%;
+    left:12%;
+    margin-top:-15px;
+    width:30px;
+    height:30px;
+}
+
+.Tsub li a,.Hsub li a{
+    line-height:70px;
+    font-size:18px;
+    display:block;
+    width:200px;
+    height:60px;
+
+    color:#dadeec;
+}
+
+.Tsub.active{
+  display:block;
+    
+}
+
+
+
+
+
+.Dsub.active{
+    display:block;
+      
+  }
+.submenu2{
+    display:none;
+}
+
+.MD>li{
+    height:56px;
+}
+.submenu2>li{
+    position:relative;
+    width:200px;
+    background-image:linear-gradient(to bottom,#381419 0%, #29050a 100%);
+    transition: all 0.15s;
+    text-align:center;
+    background-color:#43161c;
+    border:1px solid #a33d3d;
+    border-left:2px solid #a33d3d;
+    box-shadow:0 8px 7px  rgba(0,0,0,0.2);
+    border-right:none;
+    line-height: 80px;
+    position:relative;
+    filter:drop-shadow(0 8px 7px  rgba(0,0,0,0.3));
+    display:block;
+
+}
+.submenu2>li>a{
+    width:220px;
+    height:80px;
+    line-height:80px;
+    display:block;
+    color:#dadeec;
+    font-size:18px;
+    text-align:center;
+}
+.submenu2>li>a:hover{
+    background:#a33d3d;
+}
+.MD>li>a{
+    width:220px;
+    height:58px;
+    display:block;
+    line-height:58px;
+    color:#dadeec;
+    font-size:18px;
+    text-align:center;
+}
