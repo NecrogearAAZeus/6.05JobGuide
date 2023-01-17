@@ -526,14 +526,6 @@
   #img1{
     margin-left:62px;
   }
-
-<<<<<<< HEAD
-  /* .ParagraphL4 span {
-    position:absolute;
-  } */
-
-=======
->>>>>>> 7178b5bf1f338db7a72495a7fa3a1981f6ec3f64
   .ParagraphL4 span:first-child{
     position:relative;
   }

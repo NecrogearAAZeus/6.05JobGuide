@@ -37,11 +37,6 @@ body{
 #wrapper{
     width:100%;
     height:100vh;
-<<<<<<< HEAD
-
-    /*일정크기 미만일시 안내하고 확대 시키기*/
-=======
->>>>>>> 7178b5bf1f338db7a72495a7fa3a1981f6ec3f64
     position:relative;
     overflow: hidden;
 }
@@ -105,11 +100,6 @@ body{
 
 .Timg{
     position:absolute;
-<<<<<<< HEAD
-    /*캐릭터들 순차적으로 나오기*/
-
-=======
->>>>>>> 7178b5bf1f338db7a72495a7fa3a1981f6ec3f64
     display:none;
     width:100%;
     top:0;
@@ -122,13 +112,9 @@ body{
 }
 .Timg img:nth-child(2){
     width:100%;
-<<<<<<< HEAD
     height:100vh;
-    /*이거보다 클경우 vh쓰게 조정하기이미지 말고 백그라운드만 적용*/
-   
-=======
     height:100vh; 
->>>>>>> 7178b5bf1f338db7a72495a7fa3a1981f6ec3f64
+
 }
 .PLD{
     position:absolute;
